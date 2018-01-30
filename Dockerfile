@@ -35,18 +35,11 @@ RUN rm /etc/localtime \
     && ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 RUN "date"
 
-
-# Install APCu 
-RUN pecl install apcu && \
- echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
-
-
 # Install the available extensions
 RUN docker-php-ext-install pdo  intl zip soap  mcrypt opcache
 
 # POSTGRES
 RUN docker-php-ext-install pdo_pgsql
-
 
 RUN pecl install -o -f xdebug \
     && rm -rf /tmp/pear
