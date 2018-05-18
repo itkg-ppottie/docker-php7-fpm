@@ -27,7 +27,7 @@ RUN systemMods=" \
 
 
 # Install Composer
-COPY --from=composer:1.6.2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.6.5 /usr/bin/composer /usr/bin/composer
 RUN composer --version
 
 # Set timezone
